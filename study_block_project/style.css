@@ -1,0 +1,120 @@
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-family: Inter;
+}
+
+* {
+  pointer-events: none;
+  user-select: none;
+}
+
+.tools {
+  position: absolute;
+}
+
+.prev,
+.next {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  top: 50vh;
+}
+
+.prev {
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.next {
+  left: calc(100vw - 20px);
+  transform: translate(-100%, -50%);
+}
+
+.icon {
+  height: 48px;
+  width: 48px;
+  font-size: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.icon[disabled] { 
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+} 
+
+.icon.nextSlide, 
+.icon.prevSlide {
+  background-size: cover;
+  background-image: url("./icons/next-slide.png");
+}
+
+.icon.nextChapter, 
+.icon.prevChapter {
+  background-size: cover;
+  background-image: url("./icons/next-chapter.png");
+}
+
+.icon.prevSlide,
+.icon.prevChapter {
+  transform: rotate(180deg);
+}
+
+.icon.restart {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-image: url("./icons/restart.png");
+  position: absolute;
+  left: calc(100vw - 20px);
+  transform: translateX(-100%);
+}
+
+
+.presentation {
+  position: absolute;
+  left: 0;
+  display: flex;
+  transition: transform 280ms ease-in-out;
+}
+
+.titles > span {
+  display: none;
+}
+
+.chapter-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  padding: 1vh 5vw;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.trademark {
+  position: absolute;
+  top: calc(100vh - 30px);
+  left: calc(100vw - 200px);
+}
+
+.chapter {
+  display: flex;
+}
+
+.chapter section {
+  height: 100vh;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 5vw;
+  align-items: center;
+  font-size: 3rem;
+}
